@@ -1,94 +1,4 @@
 
-// function updateExtraMemory(updating) {
-
-//     const memoryInput = document.getElementById('memory-increase');
-//     const memoryNumber = memoryInput.innerText;
-//     if (updating == true) {
-//         memoryInput.innerText = 180;
-
-//     }
-//     else {
-//         memoryInput.innerText = 0;
-//     }
-
-// }
-
-// // for storage
-// function updateExtraStorage(updatingStorage) {
-
-//     const storageInput = document.getElementById('storage-increase');
-//     const storageNumber = storageInput.innerText;
-//     if (updatingStorage == true) {
-//         storageInput.innerText = 100;
-
-//     }
-//     else {
-//         storageInput.innerText = 180;
-//     }
-
-// }
-
-// // for delivery 
-// function updateExtraDelivery(updatingDelivery) {
-
-//     const deliveryInput = document.getElementById('delivery-total');
-//     const deliveryNumber = deliveryInput.innerText;
-//     if (updatingDelivery == true) {
-//         deliveryInput.innerText = 20;
-
-//     }
-//     else {
-//         deliveryInput.innerText = 0;
-//     }
-
-// }
-
-// function getInputValue 
-
-
-
-
-
-
-// // for memory
-
-// document.getElementById('memorycost-changed').addEventListener('click', function () {
-//     updateExtraMemory(true);
-// })
-
-
-
-// document.getElementById('memorycost-notchanged').addEventListener('click', function () {
-//     updateExtraMemory(false);
-
-// })
-
-// // for storage
-
-
-// document.getElementById('storage-input').addEventListener('click', function () {
-//     updateExtraStorage(true);
-
-// })
-// document.getElementById('storage-input-two').addEventListener('click', function () {
-//     updateExtraStorage(false);
-
-// })
-
-
-// // for delivery
-
-// document.getElementById('delivery-input').addEventListener('click', function () {
-//     updateExtraDelivery(true);
-
-// })
-// document.getElementById('delivery-inputnot').addEventListener('click', function () {
-//     updateExtraDelivery(false);
-
-
-// })
-
-
 // for memory
 const memoryzero = document.getElementById('memorycost-notchanged');
 const memoryIncrease = document.getElementById('memorycost-changed');
@@ -114,7 +24,7 @@ const storageZero = document.getElementById('storage-input');
 
 const storageincrese = document.getElementById('storage-inputincrease');
 
-const storageMoreIn = document.getElementById('storage-input-morein');
+const storageMoreIncrease = document.getElementById('storage-input-morein');
 
 
 const updateStorageCost = document.getElementById('storage-increase');
@@ -131,7 +41,7 @@ storageincrese.addEventListener('click', function () {
     updateStorageCost.innerText = 100;
     updateTotal()
 })
-storageMoreIn.addEventListener('click', function () {
+storageMoreIncrease.addEventListener('click', function () {
     updateStorageCost.innerText = 180;
     updateTotal()
 })
@@ -153,13 +63,39 @@ deliveryIncrese.addEventListener('click', function () {
     updateTotal()
 
 })
-
+// Update Total-Price
 const totalPrice = document.getElementById('total');
+
+const updateGrandTotal = document.getElementById('update-total');
+
+
+
 
 function updateTotal() {
     const memoryCost = parseInt(updateStorageCost.innerText);
     const storageCost = parseInt(updateStorageCost.innerText);
     const deliveryCost = parseInt(updateDelivery.innerText);
-    const grandTotal = parseFloat(memoryCost + storageCost + deliveryCost);
+
+    const grandTotal = parseFloat(memoryCost + storageCost + deliveryCost) + 1299;
     totalPrice.innerText = grandTotal;
+    updateGrandTotal.innerText = grandTotal;
 }
+
+// apply-button
+
+document.getElementById('apply-button').addEventListener('click', function () {
+    const applyPin = document.getElementById('pincode');
+    const forDiscount = applyPin.value;
+    if (forDiscount == stevekaku) {
+        grandTotal = (grandTotal - 20) / 100;
+    }
+    else {
+        grandTotal;
+    }
+})
+
+
+
+
+
+
